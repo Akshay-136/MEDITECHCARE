@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect} from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,8 +13,13 @@ import routes from "routes";
 import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
-
-
+import DashboardHos from "layouts/dashboardHos";
+import DashboardDoc from "layouts/dashboardDoc";
+import SignInDoc from "layouts/authentication/sign-in-doc";
+import SignInHos from "layouts/authentication/sign-in-hos";
+import SignUpDoc from "layouts/authentication/sign-up-doc";
+import SignUpHos from "layouts/authentication/sign-up-hos";
+import Home from "Home";
 export default function App() {
   
   const [controller, dispatch] = useMaterialUIController();
@@ -108,15 +113,19 @@ export default function App() {
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
           />
-          <Configurator />
+ 
           
-          {configsButton}
         </>
       )}
-      {layout === "vr" && <Configurator />}
       <Routes>
         {getRoutes(routes)}
-        <Route exact path={"*"} element={<Navigate to="/dashboard" />} />;
+        <Route exact path="*" element={<Navigate to="/home" />} />;
+        <Route exact path="/dashboardDoc123" element={<DashboardDoc/>} />;
+        <Route exact path="/dashboardHos134" element={<DashboardHos/>} />;
+        <Route exact path="/auth/sign-up-doc" element={<SignInDoc/>} />;
+        <Route exact path="/auth/sign-in-doc" element={<SignUpDoc/>} />;
+        <Route exact path="/auth/sign-up-hos" element={<SignInHos/>} />;
+        <Route exact path="/auth/sign-in-hos" element={<SignUpHos/>} />;
       </Routes>
     </ThemeProvider>
   );

@@ -15,8 +15,7 @@ Coded by www.creative-tim.com
 
 // @mui material components
 import Grid from "@mui/material/Grid";
-import { useState,useContext,useEffect} from "react";
-import axios from "axios";
+
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 
@@ -27,7 +26,7 @@ import Footer from "examples/Footer";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
-import UserContext from "ContextProvider";
+
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
@@ -38,27 +37,6 @@ import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 
 function Dashboard() {
   const { sales, tasks,repot } = reportsLineChartData;
-  const {details,setDetails} = useContext(UserContext);
-  useEffect(()=>{
-    // console.log("json")
-
-    const getDetails =async()=>{
-      // console.log(localStorage.getItem('data'))
-          const json = JSON.stringify(localStorage.getItem('data'));
-          console.log(json)
-      // const result = await axios.post(
-      //   "http://localhost:8080/api/readAssets", 
-      //   json, 
-      //   {
-      //       headers: { 
-      //         'Content-Type' : 'application/json' 
-      //       }
-      //   })
-      //   console.log(result)
-
-    }
-    getDetails();
-  },[])
 
   return (
     <DashboardLayout>
@@ -71,10 +49,10 @@ function Dashboard() {
                 color="dark"
                 icon="medication"
                 title="Checkups"
-                count={0}
+                count={30}
                 percentage={{
                   color: "success",
-                  amount: "0%",
+                  amount: "+55%",
                   label: "than last year",
                 }}
               />
@@ -85,10 +63,10 @@ function Dashboard() {
               <ComplexStatisticsCard
                 icon="leaderboard"
                 title="Health Issues"
-                count="0"
+                count="5"
                 percentage={{
                   color: "success",
-                  amount: "0%",
+                  amount: "+3%",
                   label: "than last month",
                 }}
               />
@@ -100,11 +78,11 @@ function Dashboard() {
                 color="success"
                 icon="receiptlong"
                 title="Total Appointments"
-                count="0"
+                count="28"
               
                 percentage={{
                   color: "success",
-                  amount: "0%",
+                  amount: "+1%",
                   label: "than yesterday",
                 }}
               />
@@ -116,7 +94,7 @@ function Dashboard() {
                 color="primary"
                 icon="person_add"
                 title="Issues solved"
-                count="0"
+                count="5"
                 percentage={{
                   color: "success",
                   amount: "",
@@ -139,17 +117,17 @@ function Dashboard() {
                 />
               </MDBox>
             </Grid> */}
-            <Grid item xs={12} md={6} lg={4}>
+            {/* <Grid item xs={12} md={6} lg={4}>
               <MDBox mb={3}>
                 <ReportsLineChart
                   color="success"
-                  title={details.patientId}
+                  title="Active Health Issues"
                   description={
                     <>
-                      (<strong>+0%</strong>)
+                      (<strong>+15%</strong>)
                     </>
                   }
-                  date="updated 0 min ago"
+                  date="updated 4 min ago"
                   chart={sales}
                 />
               </MDBox>
@@ -164,7 +142,7 @@ function Dashboard() {
                   chart={tasks}
                 />
               </MDBox>
-            </Grid>
+            </Grid> */}
           </Grid>
         </MDBox>
         <MDBox>

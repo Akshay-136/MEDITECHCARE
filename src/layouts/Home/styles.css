@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+}
+main
+{
+  background-image: url("https://img.freepik.com/free-vector/clean-medical-background_53876-116875.jpg?w=1380&t=st=1677941722~exp=1677942322~hmac=e4b112e536dba57416eccd170a23b830f60a37786397c30fe2480766f144df69");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+.loginOption
+{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 52vh;
+}
+ .title
+{
+  text-align: center;
+  font-size: 3.2vw;
+  font-weight: 800;
+  position: relative;
+  top: 23vh;
+  font-family: 'Acme', sans-serif;
+}
+.loginOption button
+{
+  margin: 5vw;
+  background-color: rgba(78, 255, 246, 0.75);
+  border-radius: 22px;
+  padding: 1.5vh 2.5vw;
+  font-size: 1.25vw;
+  color: rgb(73, 73, 73);
+  border: none;
+  outline: none;
+  box-shadow: -5px -5px 10px rgb(218, 218, 218), 5px 5px 10px rgb(187, 187, 187),
+  inset -5px -5px 10px rgb(206, 255, 240), inset 5px 5px 10px rgb(88, 255, 219);
+  font-family: 'Acme', sans-serif;
+}
+.loginHeader
+{
+  text-align: center;
+  font-family: 'Acme', sans-serif;
+  position: relative;
+  top: 50vh;
+  font-size: 1.5vw;
+}
+.loginOption button:hover
+{
+  color: black;
+  font-size: 1.4vw;
+}

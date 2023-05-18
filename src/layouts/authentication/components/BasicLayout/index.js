@@ -32,14 +32,7 @@ import Footer from "layouts/authentication/components/Footer";
 function BasicLayout({ image, children }) {
   return (
     <PageLayout>
-      <DefaultNavbar
-        action={{
-          type: "external",
-          route: "https://creative-tim.com/product/material-dashboard-react",
-          label: "free download",
-          color: "dark",
-        }}
-      />
+  
       <MDBox
         position="absolute"
         width="100%"
@@ -48,9 +41,9 @@ function BasicLayout({ image, children }) {
           backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
             image &&
             `${linearGradient(
-              rgba(gradients.dark.main, 0.6),
-              rgba(gradients.dark.state, 0.6)
-            )}, url(${image})`,
+              rgba(gradients.dark.main, 0.3),
+              rgba(gradients.dark.state, 0.3)
+            )}, url(${"https://img.freepik.com/free-vector/clean-medical-background_53876-116875.jpg?w=1380&t=st=1677941722~exp=1677942322~hmac=e4b112e536dba57416eccd170a23b830f60a37786397c30fe2480766f144df69"})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -63,7 +56,6 @@ function BasicLayout({ image, children }) {
           </Grid>
         </Grid>
       </MDBox>
-      <Footer light />
     </PageLayout>
   );
 }

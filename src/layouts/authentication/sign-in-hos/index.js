@@ -13,10 +13,10 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState,useContext } from "react";
-import axios from "axios";
+import { useState } from "react";
+
 // react-router-dom components
-import { Link,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -40,19 +40,15 @@ import BasicLayout from "layouts/authentication/components/BasicLayout";
 
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
-import UserContext from "ContextProvider";
 
 function Basic() {
-  const {details,setDetails} = useContext(UserContext);
-  const navigate = useNavigate();
+  const [rememberMe, setRememberMe] = useState(false);
 
-
+  const handleSetRememberMe = () => setRememberMe(!rememberMe);
+  
   const onClicksubmit =async(event)=>{
     event.preventDefault();
-    setDetails("123");
-    
     const json = JSON.stringify(state);
-    localStorage.setItem('data', json);
     console.log(json)
     const result = await axios.post(
       "http://localhost:8080/api/readAssets", 
@@ -63,16 +59,13 @@ function Basic() {
           }
       }
 )
-navigate('/dashboard')
-// console.log(result.data.response)
-// const data = JSON.parse(result.data.response);
+console.log(result);
+
 }
-const [state, setState] = useState({
-  userName:"",
-  assetId:"",
-  password: ""
-});
- 
+  const [state, setState] = useState({
+    username:"",
+    password: ""
+  });
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setState((prevProps) => ({
@@ -80,7 +73,6 @@ const [state, setState] = useState({
       [name]: value
     }));
   };
-
   return (
     <BasicLayout image={bgImage}>
       <Card>
@@ -117,26 +109,21 @@ const [state, setState] = useState({
           </Grid>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form"  role="form">
-            
-            <MDBox mb={2}>
-              <MDInput type="text" label="Username"   name="userName"
-            value={state.userName}
-            onChange={handleInputChange} fullWidth />
+          <MDBox component="form" role="form">
+          <MDBox mb={2}>
+              <MDInput type="text" label="Username" name="username"
+            value={state.username}
+            onChange={handleInputChange}  fullWidth />
             </MDBox>
-            <MDBox mb={2}>
-            <MDInput type="text" label="ID"   name="assetId"
-            value={state.assetId}
-            onChange={handleInputChange} fullWidth />
-            </MDBox>
+         
             <MDBox mb={2}>
               <MDInput type="password" label="Password" name="password"
             value={state.password}
-            onChange={handleInputChange} fullWidth />
+            onChange={handleInputChange}  fullWidth />
             </MDBox>
-        
+       
             <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" onClick={onClicksubmit} style={{background:"#71d5c9"}} fullWidth>
+              <MDButton variant="gradient" color="info" onClick={onClicksubmit}   style={{background:"#71d5c9"}} fullWidth>
                 sign in
               </MDButton>
             </MDBox>
@@ -145,7 +132,7 @@ const [state, setState] = useState({
                 Don&apos;t have an account?{" "}
                 <MDTypography
                   component={Link}
-                  to="/authentication/sign-up"
+                  to="/authentication/sign-up-hos"
                   variant="button"
                   color="success"
                   fontWeight="medium"

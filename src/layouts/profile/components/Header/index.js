@@ -99,10 +99,10 @@ function Header({ children }) {
           <Grid item>
             <MDBox height="100%" mt={0.5} lineHeight={1}>
               <MDTypography variant="h5" fontWeight="medium">
-                Richard Davis
+                user1
               </MDTypography>
               <MDTypography variant="button" color="text" fontWeight="regular">
-              789EH2022
+              123456
               </MDTypography>
             </MDBox>
           </Grid>
@@ -125,14 +125,7 @@ function Header({ children }) {
                     </Icon>
                   }
                 />
-                <Tab
-                  label="Settings"
-                  icon={
-                    <Icon fontSize="small" sx={{ mt: -0.25 }}>
-                      settings
-                    </Icon>
-                  }
-                />
+      
               </Tabs>
             </AppBar>
           </Grid>

@@ -48,10 +48,9 @@ function Overview() {
                 title="profile information"
                 description="My name is Alec and I am a 35-year-old architect living in New York City. I graduated from Columbia University with a degree in architecture and have been working in the field for over 10 years. In my free time, I enjoy playing basketball, hiking, and exploring new neighborhoods in the city. "
                 info={{
-                  fullName: "Alec M. Thompson",
-                  mobile: "(44) 123 1234 123",
-                  email: "alecthompson@mail.com",
-                  location: "USA",
+                  fullName: "user1",
+                  mobile: "7575757575",
+                  email: "user1@gmail.com",
                 }}
                 social={[
                   {

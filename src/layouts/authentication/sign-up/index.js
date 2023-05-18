@@ -12,9 +12,10 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-
+import { useState } from "react";
+import axios from "axios";
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -27,18 +28,56 @@ import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 
 // Authentication layout components
-import CoverLayout from "layouts/authentication/components/CoverLayout";
+import BasicLayout from "layouts/authentication/components/BasicLayout";
 
 // Images
 import bgImage from "assets/images/bg-sign-up-cover.jpeg";
 
 function Cover() {
+  const navigate = useNavigate();
+  const onClicksubmit =async(event)=>{
+    event.preventDefault();
+    const json = JSON.stringify(state);
+    console.log(json)
+    const result = await axios.post(
+      "http://localhost:8080/api/createUser", 
+      json, 
+      {
+          headers: { 
+            'Content-Type' : 'application/json' 
+          }
+      }
+)
+console.log(result);
+navigate('/authentication/sign-in')
+
+  }
+  const [state, setState] = useState({
+    userName:"",
+    fistName:"",
+    lastName:"",
+    status:"",
+    patientId:"",
+    mobno:"",
+    DOB:"",
+    gender:"",
+    email:"",
+    password: "",
+
+  });
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setState((prevProps) => ({
+      ...prevProps,
+      [name]: value
+    }));
+  };
   return (
-    <CoverLayout image={bgImage}>
+    <BasicLayout image={bgImage}>
       <Card>
         <MDBox
           variant="gradient"
-          bgColor="info"
+          style={{background:"#71d5c9"}}
           borderRadius="lg"
           coloredShadow="success"
           mx={2}
@@ -57,13 +96,48 @@ function Cover() {
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mb={2}>
-              <MDInput type="text" label="Name" variant="standard" fullWidth />
+              <MDInput type="text" label="Username" variant="standard"name="userName"
+            value={state.userName}
+            onChange={handleInputChange} fullWidth />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="email" label="Email" variant="standard" fullWidth />
+              <MDInput type="text" label="First Name" variant="standard" name="fistName"
+            value={state.fistName}
+            onChange={handleInputChange} fullWidth />
+            </MDBox><MDBox mb={2}>
+              <MDInput type="text" label="Last Name" variant="standard" name="lastName"
+            value={state.lastName}
+            onChange={handleInputChange} fullWidth />
+            </MDBox><MDBox mb={2}>
+              <MDInput type="text" label="Status" variant="standard" name="status"
+            value={state.status}
+            onChange={handleInputChange} fullWidth />
+            </MDBox><MDBox mb={2}>
+              <MDInput type="text" label="ID" variant="standard" name="patientId"
+            value={state.patientId}
+            onChange={handleInputChange} fullWidth />
+            </MDBox><MDBox mb={2}>
+              <MDInput type="text" label="Phone no" variant="standard" name="mobno"
+            value={state.mobno}
+            onChange={handleInputChange} fullWidth />
+            </MDBox><MDBox mb={2}>
+              <MDInput type="text" label="DOB" variant="standard" name="DOB"
+            value={state.DOB}
+            onChange={handleInputChange} fullWidth />
+            </MDBox><MDBox mb={2}>
+              <MDInput type="text" label="Gender" variant="standard" name="gender"
+            value={state.gender}
+            onChange={handleInputChange} fullWidth />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="password" label="Password" variant="standard" fullWidth />
+              <MDInput type="email" label="Email" variant="standard" name="email"
+            value={state.email}
+            onChange={handleInputChange} fullWidth />
+            </MDBox>
+            <MDBox mb={2}>
+              <MDInput type="password" label="Password" variant="standard" name="password"
+            value={state.password}
+            onChange={handleInputChange} fullWidth />
             </MDBox>
             <MDBox display="flex" alignItems="center" ml={-1}>
               <Checkbox />
@@ -80,15 +154,16 @@ function Cover() {
                 href="#"
                 variant="button"
                 fontWeight="bold"
-                color="info"
+                color="success"
                 textGradient
               >
                 Terms and Conditions
               </MDTypography>
             </MDBox>
+          
             <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
-                sign in
+              <MDButton variant="gradient" color="info" onClick={onClicksubmit} style={{background:"#71d5c9"}} fullWidth>
+            sign up
               </MDButton>
             </MDBox>
             <MDBox mt={3} mb={1} textAlign="center">
@@ -98,7 +173,7 @@ function Cover() {
                   component={Link}
                   to="/authentication/sign-in"
                   variant="button"
-                  color="info"
+                  color="success"
                   fontWeight="medium"
                   textGradient
                 >
@@ -109,7 +184,7 @@ function Cover() {
           </MDBox>
         </MDBox>
       </Card>
-    </CoverLayout>
+    </BasicLayout>
   );
 }
 

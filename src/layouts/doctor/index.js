@@ -67,7 +67,7 @@ function Doctor() {
                         <button className="like-button">&#10084;</button>
                       </div>
                       <div className="caard-details">
-                        <h2>Dr. John Doe</h2>
+                        <h2>Dr. Doc1</h2>
                         <div className="caard-rating">
                           <span className="rating-star">&#9733;</span>
                           <span className="rating-star">&#9733;</span>
@@ -76,12 +76,12 @@ function Doctor() {
                           <span className="rating-star">&#9734;</span>
                         </div>
                         <p className="caard-address">
-                          <span className="gmap-symbol">&#127968;</span> 123 Main St, Anytown USA
+                          <span className="gmap-symbol">&#127968;</span> Bhopal
                         </p>
                         <div className="caard-specialization">
                           <h3>Specialization:</h3>
                           <ul>
-                            <li>caardiology</li>
+                            <li>ENT</li>
                             <li>Internal Medicine</li>
                           </ul>
                         </div>
@@ -89,18 +89,13 @@ function Doctor() {
                       </div>
                     </div>
 
-                    {/* <div className="caard {`card${liked ? ' liked' : ''}`}"> */}
-                    <div className="caard ">
+                    {/* <div className="caard ">
 
                       <div className="caard-image">
                         <img src="https://via.placeholder.com/150" alt="Doctor" />
                         <button className="like-button">&#10084;</button>
 
-                        {/* <button className="like-button" onClick={() => setLiked(!liked)}>
-                        &#10084;
-                        
-  {liked ? '❤️' : '♡'}
-                        </button> */}
+                   
 
                       </div>
                       <div className="caard-details">
@@ -124,9 +119,9 @@ function Doctor() {
                         </div>
                         <button className="book-docointment-button">Book an appointment</button>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="caard">
+                    {/* <div className="caard">
                       <div className="caard-image">
                         <img src="https://via.placeholder.com/150" alt="Doctor" />
                         <button className="like-button">&#10084;</button>
@@ -152,9 +147,9 @@ function Doctor() {
                         </div>
                         <button className="book-docointment-button">Book an appointment</button>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="caard">
+                    {/* <div className="caard">
                       <div className="caard-image">
                         <img src="https://via.placeholder.com/150" alt="Doctor" />
                         <button className="like-button">&#10084;</button>
@@ -180,9 +175,9 @@ function Doctor() {
                         </div>
                         <button className="book-docointment-button">Book an appointment</button>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="caard">
+                    {/* <div className="caard">
                       <div className="caard-image">
                         <img src="https://via.placeholder.com/150" alt="Doctor" />
                         <button className="like-button">&#10084;</button>
@@ -208,8 +203,8 @@ function Doctor() {
                         </div>
                         <button className="book-docointment-button">Book an appointment</button>
                       </div>
-                    </div>
-                    <div className="caard">
+                    </div> */}
+                    {/* <div className="caard">
                       <div className="caard-image">
                         <img src="https://via.placeholder.com/150" alt="Doctor" />
                         <button className="like-button">&#10084;</button>
@@ -234,7 +229,7 @@ function Doctor() {
                         </div>
                         <button className="book-docointment-button">Book an appointment</button>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
 
